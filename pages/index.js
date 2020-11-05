@@ -23,7 +23,7 @@ export default function BlogHome(props) {
     </div>
   );
 }
-
+ 
 export async function getStaticProps() {
   const home = await client.getSingle("blog_home");
   const posts = await client.query(
