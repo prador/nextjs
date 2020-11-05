@@ -16,13 +16,6 @@ export default function Post({ data }) {
   );
 }
 
-export async function getServerSideProps({ query, res }) {
-  const post = await client.getByUID('post', query.uid)
-
-  res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate')
-  return { props: { post } }
-}
-
 
 export async function getStaticProps({ params }) {
   const { uid } = params;

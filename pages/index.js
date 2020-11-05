@@ -4,13 +4,6 @@ import Prismic from "prismic-javascript";
 import { RichText, Date } from "prismic-reactjs";
 import { client } from "../prismic-configuration";
 
-export async function getServerSideProps({ query, res }) {
-  const post = await client.getByUID('post', query.uid)
-
-  res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate')
-  return { props: { post } }
-}
-
 export default function BlogHome(props) {
   return (
     <div>
